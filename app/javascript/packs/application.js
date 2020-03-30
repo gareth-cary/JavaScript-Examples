@@ -15,3 +15,28 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "bootstrap";
+
+import { loadDynamicBannerText } from '../components/banner';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  // [...]
+  if (document.getElementById("banner-typed-text")) {
+  loadDynamicBannerText();
+    }
+  price()
+});
+
+function price() {
+  const price = document.querySelector(".price-target")
+  if (price) {
+    const input = document.getElementById("booking_total_hours")
+    input.addEventListener("input", event => {
+      const rate = price.dataset.rate
+      const total = rate * event.currentTarget.value
+      price.innerText = `Total Price: £${total}`
+    })
+  }
+}
