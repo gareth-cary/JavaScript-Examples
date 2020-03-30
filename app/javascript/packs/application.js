@@ -26,17 +26,6 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById("banner-typed-text")) {
   loadDynamicBannerText();
     }
-  price()
 });
 
-function price() {
-  const price = document.querySelector(".price-target")
-  if (price) {
-    const input = document.getElementById("booking_total_hours")
-    input.addEventListener("input", event => {
-      const rate = price.dataset.rate
-      const total = rate * event.currentTarget.value
-      price.innerText = `Total Price: £${total}`
-    })
-  }
-}
+
